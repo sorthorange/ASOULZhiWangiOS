@@ -14,27 +14,27 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - Masonry (1.1.0)
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
+  - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - AFNetworking
-  - Masonry
   - SDWebImage
+  - SnapKit
 
 SPEC REPOS:
   trunk:
     - AFNetworking
-    - Masonry
     - SDWebImage
+    - SnapKit
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 784830641881208cf83765d8a1c567d532099f26
+PODFILE CHECKSUM: 38ed3f4debe8f820de4be3c72f8e965a96c83b17
 
 COCOAPODS: 1.10.1

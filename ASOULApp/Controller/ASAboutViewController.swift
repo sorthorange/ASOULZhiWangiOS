@@ -11,7 +11,17 @@
 
 import UIKit
 
-class ASAboutViewController: UIViewController {
+class ASAboutViewController: ASTabBarChildViewController {
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        asTabBarItem.title = "关于"
+        asTabBarItem.image = UIImage(named: "about")
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,6 +9,7 @@
     
 
 import UIKit
+import SnapKit
 
 enum ASTabBarType : Int {
     case checkDuplicate = 0
@@ -16,7 +17,11 @@ enum ASTabBarType : Int {
     case about
 }
 
-class ASTabBarViewController: UITabBarController {
+class ASTabBarViewController: UIViewController {
+    
+    let tabbarHeight: Float = 49
+    
+    private lazy var tabBarView: UIStackView = UIStackView()
     
     private lazy var checkDuplicateViewController = ASCheckDuplicateViewController()
     private lazy var libraryViewController = ASLibraryViewController()
@@ -24,14 +29,33 @@ class ASTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSubViews()
         setupChildControllers()
+    }
+    
+    func setupSubViews() {
+        tabBarView.spacing = 10
+        tabBarView.axis = .horizontal
+        tabBarView.distribution = .fillEqually
+        view.addSubview(tabBarView)
+        tabBarView.snp.makeConstraints { make in
+            make.left.right.equalTo(view)
+            make.bottom.equalTo(view.snp.bottomMargin)
+            make.height.equalTo(tabbarHeight)
+        }
     }
 
     func setupChildControllers() {
-        addChild(checkDuplicateViewController)
-        addChild(libraryViewController)
-        addChild(aboutViewController)
+        addASChild(checkDuplicateViewController)
+        addASChild(libraryViewController)
+        addASChild(aboutViewController)
     }
+    
+    func addASChild(_ viewController: ASTabBarChildViewController) {
+        tabBarView.addArrangedSubview(viewController.asTabBarItem)
+    }
+    
+    
 
 }
 

@@ -7,6 +7,6 @@ target 'ASOULApp' do
 
   # Pods for ASOULApp
   pod 'SDWebImage'
-  pod 'Masonry'
+  pod 'SnapKit'
   pod 'AFNetworking'
 end
