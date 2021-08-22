@@ -54,6 +54,7 @@
 		B7F665BC26D2555D00437F41 /* ASOULApp */ = {
 			isa = PBXGroup;
 			children = (
+				B7F665D126D25FF800437F41 /* Controller */,
 				B7F665BD26D2555D00437F41 /* AppDelegate.swift */,
 				B7F665C126D2555D00437F41 /* ViewController.swift */,
 				B7F665C326D2555D00437F41 /* Main.storyboard */,
@@ -62,6 +63,13 @@
 				B7F665CB26D2556100437F41 /* Info.plist */,
 			);
 			path = ASOULApp;
+			sourceTree = "<group>";
+		};
+		B7F665D126D25FF800437F41 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,7 +297,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.HC.ASOULApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HC.ASoulZhiWang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -308,7 +316,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.HC.ASOULApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HC.ASoulZhiWang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
