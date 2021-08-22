@@ -4,7 +4,7 @@
 //  ASTabBarItem.swift
 //  ASOULApp
 //
-//  Created by 霍橙 on 2021/8/22.
+//  Created by southorange on 2021/8/22.
 //  
 //
     
@@ -12,15 +12,17 @@
 import UIKit
 
 class ASTabBarItem: UIButton {
-
-    var title: String = "" {
+    
+    var type: ASTabBarType = .checkDuplicate {
         didSet {
-            itemTitleLabel.text = title
+            itemTitleLabel.text = type.title
+            itemImageView.image = UIImage(named: type.imageName)
         }
     }
-    var image: UIImage? {
+    
+    var isItemSelected: Bool = false {
         didSet {
-            itemImageView.image = image
+            self.alpha = isItemSelected ? 1.0 : 0.7
         }
     }
     

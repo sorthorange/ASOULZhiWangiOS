@@ -80,6 +80,7 @@
 		B7F665BC26D2555D00437F41 /* ASOULApp */ = {
 			isa = PBXGroup;
 			children = (
+				B7F665F126D2954200437F41 /* Utils */,
 				B7F665EA26D2816400437F41 /* View */,
 				B7F665D126D25FF800437F41 /* Controller */,
 				B7F665BD26D2555D00437F41 /* AppDelegate.swift */,
@@ -109,6 +110,13 @@
 				B7F665ED26D28E7600437F41 /* ASTabBarItem.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B7F665F126D2954200437F41 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		FAA072989FECE4E0FD256DE2 /* Frameworks */ = {
