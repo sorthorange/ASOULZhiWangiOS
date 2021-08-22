@@ -3,13 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3342065A21E8B59EE9D4107F /* Pods_ASOULApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5A7F83DBD01A4C9A697183 /* Pods_ASOULApp.framework */; };
 		B7F665BE26D2555D00437F41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F665BD26D2555D00437F41 /* AppDelegate.swift */; };
-		B7F665C226D2555D00437F41 /* ASViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F665C126D2555D00437F41 /* ASViewController.swift */; };
+		B7F665C226D2555D00437F41 /* ASTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F665C126D2555D00437F41 /* ASTabBarViewController.swift */; };
 		B7F665C526D2555D00437F41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7F665C326D2555D00437F41 /* Main.storyboard */; };
 		B7F665C726D2556100437F41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7F665C626D2556100437F41 /* Assets.xcassets */; };
 		B7F665CA26D2556100437F41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7F665C826D2556100437F41 /* LaunchScreen.storyboard */; };
@@ -23,7 +23,7 @@
 		64C92B38F07689A727116B19 /* Pods-ASOULApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASOULApp.release.xcconfig"; path = "Target Support Files/Pods-ASOULApp/Pods-ASOULApp.release.xcconfig"; sourceTree = "<group>"; };
 		B7F665BA26D2555D00437F41 /* ASOULApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASOULApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7F665BD26D2555D00437F41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B7F665C126D2555D00437F41 /* ASViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASViewController.swift; sourceTree = "<group>"; };
+		B7F665C126D2555D00437F41 /* ASTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTabBarViewController.swift; sourceTree = "<group>"; };
 		B7F665C426D2555D00437F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B7F665C626D2556100437F41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7F665C926D2556100437F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,7 +52,6 @@
 				038AC0DA9F4F89AC7B263C6E /* Pods-ASOULApp.debug.xcconfig */,
 				64C92B38F07689A727116B19 /* Pods-ASOULApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -79,7 +78,7 @@
 			children = (
 				B7F665D126D25FF800437F41 /* Controller */,
 				B7F665BD26D2555D00437F41 /* AppDelegate.swift */,
-				B7F665C126D2555D00437F41 /* ASViewController.swift */,
+				B7F665C126D2555D00437F41 /* ASTabBarViewController.swift */,
 				B7F665C326D2555D00437F41 /* Main.storyboard */,
 				B7F665C626D2556100437F41 /* Assets.xcassets */,
 				B7F665C826D2556100437F41 /* LaunchScreen.storyboard */,
@@ -221,7 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7F665E726D26FA800437F41 /* ASLibraryViewController.swift in Sources */,
-				B7F665C226D2555D00437F41 /* ASViewController.swift in Sources */,
+				B7F665C226D2555D00437F41 /* ASTabBarViewController.swift in Sources */,
 				B7F665BE26D2555D00437F41 /* AppDelegate.swift in Sources */,
 				B7F665E526D26F4400437F41 /* ASCheckDuplicateViewController.swift in Sources */,
 				B7F665E926D26FB600437F41 /* ASAboutViewController.swift in Sources */,
