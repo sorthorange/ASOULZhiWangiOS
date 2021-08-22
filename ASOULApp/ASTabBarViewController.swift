@@ -43,6 +43,7 @@ class ASTabBarViewController: UIViewController {
     let tabbarHeight: Float = 49
     
     private lazy var tabBarView: UIStackView = UIStackView()
+    private lazy var contentView: UIScrollView = UIScrollView()
     
     private lazy var checkDuplicateViewController = ASCheckDuplicateViewController()
     private lazy var libraryViewController = ASLibraryViewController()
@@ -52,21 +53,37 @@ class ASTabBarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubViews()
+        setupConstraints()
         setupChildControllers()
         registerAction()
         switchToTab(.checkDuplicate)
     }
     
     func setupSubViews() {
+        contentView.showsVerticalScrollIndicator = false
+        contentView.showsHorizontalScrollIndicator = false
+        contentView.bounces = false
+        contentView.isPagingEnabled = true
+        view.addSubview(contentView)
+        
         tabBarView.spacing = 10
         tabBarView.axis = .horizontal
         tabBarView.distribution = .fillEqually
         view.addSubview(tabBarView)
+    }
+    
+    func setupConstraints() {
         tabBarView.snp.makeConstraints { make in
             make.left.right.equalTo(view)
             make.bottom.equalTo(view.snp.bottomMargin)
             make.height.equalTo(tabbarHeight)
         }
+        contentView.snp.makeConstraints { make in
+            make.top.equalTo(view.snp.topMargin)
+            make.left.right.equalTo(view)
+            make.bottom.equalTo(tabBarView.snp.top)
+        }
+        contentView.layoutIfNeeded()
     }
 
     func setupChildControllers() {
@@ -79,8 +96,19 @@ class ASTabBarViewController: UIViewController {
     }
     
     func addASChild(_ viewController: ASTabBarChildViewController) {
-        tabBarChildViewControllers.append(viewController)
         tabBarView.addArrangedSubview(viewController.asTabBarItem)
+        contentView.addSubview(viewController.view)
+        contentView.contentSize = CGSize(width: UIScreen.main.bounds.size.width * CGFloat((tabBarChildViewControllers.count + 1)), height: contentView.frame.size.height)
+        let lastViewController = tabBarChildViewControllers.last
+        viewController.view.snp.makeConstraints { make in
+            make.top.size.equalTo(contentView)
+            if lastViewController == nil {
+                make.left.equalTo(contentView)
+            } else {
+                make.left.equalTo(lastViewController!.view.snp.right)
+            }
+        }
+        tabBarChildViewControllers.append(viewController)
     }
     
     func switchToTab(_ type: ASTabBarType) {
@@ -91,6 +119,7 @@ class ASTabBarViewController: UIViewController {
                 viewController.asTabBarItem.isItemSelected = false
             }
         }
+        contentView.setContentOffset(CGPoint(x: contentView.frame.size.width * CGFloat(type.rawValue), y: contentView.contentOffset.y), animated: true)
     }
 
 }
