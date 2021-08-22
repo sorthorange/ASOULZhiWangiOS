@@ -11,11 +11,16 @@
 import UIKit
 import SnapKit
 
+// 标签栏种类
 enum ASTabBarType : Int {
+    /// 小作文查重
     case checkDuplicate = 0
+    /// 小作文库
     case library
+    /// 关于
     case about
     
+    //标签栏文字内容
     var title: String {
         switch self {
         case .checkDuplicate:
@@ -26,6 +31,7 @@ enum ASTabBarType : Int {
             return "关于"
         }
     }
+    // 标签栏图标
     var imageName: String {
         switch self {
         case .checkDuplicate:
@@ -41,13 +47,18 @@ enum ASTabBarType : Int {
 class ASTabBarViewController: UIViewController {
     
     let tabbarHeight: Float = 49
-    
+    // 标签栏
     private lazy var tabBarView: UIStackView = UIStackView()
+    // 主视图
     private lazy var contentView: UIScrollView = UIScrollView()
     
+    // 小作文查重
     private lazy var checkDuplicateViewController = ASCheckDuplicateViewController()
+    // 小作文库
     private lazy var libraryViewController = ASLibraryViewController()
+    // 关于
     private lazy var aboutViewController = ASAboutViewController()
+    // 子控制器列表
     private lazy var tabBarChildViewControllers = [ASTabBarChildViewController]()
 
     override func viewDidLoad() {
@@ -59,11 +70,13 @@ class ASTabBarViewController: UIViewController {
         switchToTab(.checkDuplicate)
     }
     
+    // 初始化子视图
     func setupSubViews() {
         contentView.showsVerticalScrollIndicator = false
         contentView.showsHorizontalScrollIndicator = false
         contentView.bounces = false
         contentView.isPagingEnabled = true
+        contentView.delegate = self
         view.addSubview(contentView)
         
         tabBarView.spacing = 10
@@ -72,6 +85,7 @@ class ASTabBarViewController: UIViewController {
         view.addSubview(tabBarView)
     }
     
+    // 设置约束
     func setupConstraints() {
         tabBarView.snp.makeConstraints { make in
             make.left.right.equalTo(view)
@@ -86,6 +100,7 @@ class ASTabBarViewController: UIViewController {
         contentView.layoutIfNeeded()
     }
 
+    // 设置子控制器
     func setupChildControllers() {
         checkDuplicateViewController.childType = .checkDuplicate
         addASChild(checkDuplicateViewController)
@@ -95,6 +110,7 @@ class ASTabBarViewController: UIViewController {
         addASChild(aboutViewController)
     }
     
+    // 添加子控制器，设置UI
     func addASChild(_ viewController: ASTabBarChildViewController) {
         tabBarView.addArrangedSubview(viewController.asTabBarItem)
         contentView.addSubview(viewController.view)
@@ -111,7 +127,13 @@ class ASTabBarViewController: UIViewController {
         tabBarChildViewControllers.append(viewController)
     }
     
+    // 切换子控制器
     func switchToTab(_ type: ASTabBarType) {
+        contentView.setContentOffset(CGPoint(x: contentView.frame.size.width * CGFloat(type.rawValue), y: contentView.contentOffset.y), animated: true)
+    }
+    
+    // 刷新底部TabBar
+    func refreshTabBarItems(_ type: ASTabBarType) {
         for viewController in tabBarChildViewControllers {
             if viewController.childType == type {
                 viewController.asTabBarItem.isItemSelected = true
@@ -119,7 +141,6 @@ class ASTabBarViewController: UIViewController {
                 viewController.asTabBarItem.isItemSelected = false
             }
         }
-        contentView.setContentOffset(CGPoint(x: contentView.frame.size.width * CGFloat(type.rawValue), y: contentView.contentOffset.y), animated: true)
     }
 
 }
@@ -134,6 +155,20 @@ extension ASTabBarViewController {
     
     @objc func clickTabBarItem(_ tabBarItem: ASTabBarItem) {
         switchToTab(tabBarItem.type)
+    }
+}
+
+//MARK: UIScrollViewDelegate
+extension ASTabBarViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        let type = ASTabBarType(rawValue: Int(scrollView.contentOffset.x / scrollView.frame.size.width)) ?? .checkDuplicate
+        refreshTabBarItems(type)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let type = ASTabBarType(rawValue: Int(scrollView.contentOffset.x / scrollView.frame.size.width)) ?? .checkDuplicate
+        refreshTabBarItems(type)
     }
 }
 
