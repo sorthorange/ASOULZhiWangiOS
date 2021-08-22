@@ -7,21 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3342065A21E8B59EE9D4107F /* Pods_ASOULApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5A7F83DBD01A4C9A697183 /* Pods_ASOULApp.framework */; };
 		B7F665BE26D2555D00437F41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F665BD26D2555D00437F41 /* AppDelegate.swift */; };
-		B7F665C226D2555D00437F41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F665C126D2555D00437F41 /* ViewController.swift */; };
+		B7F665C226D2555D00437F41 /* ASViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F665C126D2555D00437F41 /* ASViewController.swift */; };
 		B7F665C526D2555D00437F41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7F665C326D2555D00437F41 /* Main.storyboard */; };
 		B7F665C726D2556100437F41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7F665C626D2556100437F41 /* Assets.xcassets */; };
 		B7F665CA26D2556100437F41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7F665C826D2556100437F41 /* LaunchScreen.storyboard */; };
+		B7F665E526D26F4400437F41 /* ASCheckDuplicateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F665E426D26F4400437F41 /* ASCheckDuplicateViewController.swift */; };
+		B7F665E726D26FA800437F41 /* ASLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F665E626D26FA800437F41 /* ASLibraryViewController.swift */; };
+		B7F665E926D26FB600437F41 /* ASAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F665E826D26FB600437F41 /* ASAboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		038AC0DA9F4F89AC7B263C6E /* Pods-ASOULApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASOULApp.debug.xcconfig"; path = "Target Support Files/Pods-ASOULApp/Pods-ASOULApp.debug.xcconfig"; sourceTree = "<group>"; };
+		64C92B38F07689A727116B19 /* Pods-ASOULApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASOULApp.release.xcconfig"; path = "Target Support Files/Pods-ASOULApp/Pods-ASOULApp.release.xcconfig"; sourceTree = "<group>"; };
 		B7F665BA26D2555D00437F41 /* ASOULApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASOULApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7F665BD26D2555D00437F41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B7F665C126D2555D00437F41 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B7F665C126D2555D00437F41 /* ASViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASViewController.swift; sourceTree = "<group>"; };
 		B7F665C426D2555D00437F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B7F665C626D2556100437F41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7F665C926D2556100437F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7F665CB26D2556100437F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7F665E426D26F4400437F41 /* ASCheckDuplicateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCheckDuplicateViewController.swift; sourceTree = "<group>"; };
+		B7F665E626D26FA800437F41 /* ASLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASLibraryViewController.swift; sourceTree = "<group>"; };
+		B7F665E826D26FB600437F41 /* ASAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASAboutViewController.swift; sourceTree = "<group>"; };
+		EA5A7F83DBD01A4C9A697183 /* Pods_ASOULApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASOULApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +39,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3342065A21E8B59EE9D4107F /* Pods_ASOULApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B1B9329064A9320DA00B8FD0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				038AC0DA9F4F89AC7B263C6E /* Pods-ASOULApp.debug.xcconfig */,
+				64C92B38F07689A727116B19 /* Pods-ASOULApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B7F665B126D2555D00437F41 = {
 			isa = PBXGroup;
 			children = (
 				B7F665BC26D2555D00437F41 /* ASOULApp */,
 				B7F665BB26D2555D00437F41 /* Products */,
+				B1B9329064A9320DA00B8FD0 /* Pods */,
+				FAA072989FECE4E0FD256DE2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,7 +79,7 @@
 			children = (
 				B7F665D126D25FF800437F41 /* Controller */,
 				B7F665BD26D2555D00437F41 /* AppDelegate.swift */,
-				B7F665C126D2555D00437F41 /* ViewController.swift */,
+				B7F665C126D2555D00437F41 /* ASViewController.swift */,
 				B7F665C326D2555D00437F41 /* Main.storyboard */,
 				B7F665C626D2556100437F41 /* Assets.xcassets */,
 				B7F665C826D2556100437F41 /* LaunchScreen.storyboard */,
@@ -68,8 +91,19 @@
 		B7F665D126D25FF800437F41 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B7F665E426D26F4400437F41 /* ASCheckDuplicateViewController.swift */,
+				B7F665E626D26FA800437F41 /* ASLibraryViewController.swift */,
+				B7F665E826D26FB600437F41 /* ASAboutViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		FAA072989FECE4E0FD256DE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA5A7F83DBD01A4C9A697183 /* Pods_ASOULApp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -79,9 +113,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7F665CE26D2556100437F41 /* Build configuration list for PBXNativeTarget "ASOULApp" */;
 			buildPhases = (
+				7DBDCAC730A9FE4926673D33 /* [CP] Check Pods Manifest.lock */,
 				B7F665B626D2555D00437F41 /* Sources */,
 				B7F665B726D2555D00437F41 /* Frameworks */,
 				B7F665B826D2555D00437F41 /* Resources */,
+				2013E187DBF2BF1A39B05669 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,13 +173,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2013E187DBF2BF1A39B05669 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ASOULApp/Pods-ASOULApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ASOULApp/Pods-ASOULApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ASOULApp/Pods-ASOULApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7DBDCAC730A9FE4926673D33 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ASOULApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B7F665B626D2555D00437F41 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7F665C226D2555D00437F41 /* ViewController.swift in Sources */,
+				B7F665E726D26FA800437F41 /* ASLibraryViewController.swift in Sources */,
+				B7F665C226D2555D00437F41 /* ASViewController.swift in Sources */,
 				B7F665BE26D2555D00437F41 /* AppDelegate.swift in Sources */,
+				B7F665E526D26F4400437F41 /* ASCheckDuplicateViewController.swift in Sources */,
+				B7F665E926D26FB600437F41 /* ASAboutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,11 +368,12 @@
 		};
 		B7F665CF26D2556100437F41 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 038AC0DA9F4F89AC7B263C6E /* Pods-ASOULApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 887YJJS9Q7;
+				DEVELOPMENT_TEAM = 6BB8ATB5F2;
 				INFOPLIST_FILE = ASOULApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -306,11 +388,12 @@
 		};
 		B7F665D026D2556100437F41 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64C92B38F07689A727116B19 /* Pods-ASOULApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 887YJJS9Q7;
+				DEVELOPMENT_TEAM = 6BB8ATB5F2;
 				INFOPLIST_FILE = ASOULApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
