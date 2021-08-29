@@ -9,4 +9,7 @@ target 'ASOULApp' do
   pod 'SDWebImage'
   pod 'SnapKit'
   pod 'AFNetworking'
+  pod 'YYModel'
+  pod 'SVProgressHUD'
+  pod 'MJRefresh'
 end

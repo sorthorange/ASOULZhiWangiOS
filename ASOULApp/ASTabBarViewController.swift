@@ -48,11 +48,23 @@ class ASTabBarViewController: UIViewController {
     
     let tabbarHeight: Float = 49
     // 标签栏
-    private lazy var tabBarView: UIStackView = UIStackView()
+    private lazy var tabBarView: UIStackView = UIStackView().then {
+        $0.spacing = 10
+        $0.axis = .horizontal
+        $0.distribution = .fillEqually
+    }
     // 主视图
-    private lazy var contentView: UIScrollView = UIScrollView()
+    private lazy var contentView: UIScrollView = UIScrollView().then {
+        $0.showsVerticalScrollIndicator = false
+        $0.showsHorizontalScrollIndicator = false
+        $0.bounces = false
+        $0.isPagingEnabled = true
+        $0.delegate = self
+    }
     
+    @IBOutlet weak var navBar: UINavigationBar!
     // 小作文查重
+    
     private lazy var checkDuplicateViewController = ASCheckDuplicateViewController()
     // 小作文库
     private lazy var libraryViewController = ASLibraryViewController()
@@ -68,20 +80,12 @@ class ASTabBarViewController: UIViewController {
         setupChildControllers()
         registerAction()
         switchToTab(.checkDuplicate)
+        refreshTabBarItems(.checkDuplicate)
     }
     
     // 初始化子视图
     func setupSubViews() {
-        contentView.showsVerticalScrollIndicator = false
-        contentView.showsHorizontalScrollIndicator = false
-        contentView.bounces = false
-        contentView.isPagingEnabled = true
-        contentView.delegate = self
-        view.addSubview(contentView)
-        
-        tabBarView.spacing = 10
-        tabBarView.axis = .horizontal
-        tabBarView.distribution = .fillEqually
+        view.insertSubview(contentView, at: 0)
         view.addSubview(tabBarView)
     }
     
@@ -93,7 +97,7 @@ class ASTabBarViewController: UIViewController {
             make.height.equalTo(tabbarHeight)
         }
         contentView.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.topMargin)
+            make.top.equalTo(navBar.snp.bottom)
             make.left.right.equalTo(view)
             make.bottom.equalTo(tabBarView.snp.top)
         }
@@ -114,7 +118,6 @@ class ASTabBarViewController: UIViewController {
     func addASChild(_ viewController: ASTabBarChildViewController) {
         tabBarView.addArrangedSubview(viewController.asTabBarItem)
         contentView.addSubview(viewController.view)
-        contentView.contentSize = CGSize(width: UIScreen.main.bounds.size.width * CGFloat((tabBarChildViewControllers.count + 1)), height: contentView.frame.size.height)
         let lastViewController = tabBarChildViewControllers.last
         viewController.view.snp.makeConstraints { make in
             make.top.size.equalTo(contentView)
@@ -123,6 +126,7 @@ class ASTabBarViewController: UIViewController {
             } else {
                 make.left.equalTo(lastViewController!.view.snp.right)
             }
+            make.right.lessThanOrEqualTo(contentView)
         }
         tabBarChildViewControllers.append(viewController)
     }
@@ -130,6 +134,7 @@ class ASTabBarViewController: UIViewController {
     // 切换子控制器
     func switchToTab(_ type: ASTabBarType) {
         contentView.setContentOffset(CGPoint(x: contentView.frame.size.width * CGFloat(type.rawValue), y: contentView.contentOffset.y), animated: true)
+        navBar.items?.first?.title = type.title
     }
     
     // 刷新底部TabBar
@@ -163,11 +168,13 @@ extension ASTabBarViewController: UIScrollViewDelegate {
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         let type = ASTabBarType(rawValue: Int(scrollView.contentOffset.x / scrollView.frame.size.width)) ?? .checkDuplicate
+        navBar.items?.first?.title = type.title
         refreshTabBarItems(type)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let type = ASTabBarType(rawValue: Int(scrollView.contentOffset.x / scrollView.frame.size.width)) ?? .checkDuplicate
+        navBar.items?.first?.title = type.title
         refreshTabBarItems(type)
     }
 }

@@ -22,11 +22,14 @@ class ASTabBarItem: UIButton {
     
     var isItemSelected: Bool = false {
         didSet {
-            self.alpha = isItemSelected ? 1.0 : 0.7
+            self.alpha = isItemSelected ? 1.0 : 0.5
         }
     }
     
-    private lazy var itemTitleLabel = UILabel()
+    private lazy var itemTitleLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 10)
+        $0.textAlignment = .center
+    }
     private lazy var itemImageView = UIImageView()
     
     override init(frame: CGRect) {
@@ -36,8 +39,6 @@ class ASTabBarItem: UIButton {
     }
     
     func setupSubViews() {
-        itemTitleLabel.font = .systemFont(ofSize: 10)
-        itemTitleLabel.textAlignment = .center
         addSubview(itemTitleLabel)
         addSubview(itemImageView)
     }
