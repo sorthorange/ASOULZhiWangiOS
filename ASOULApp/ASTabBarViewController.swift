@@ -62,16 +62,24 @@ class ASTabBarViewController: UIViewController {
         $0.delegate = self
     }
     
-    @IBOutlet weak var navBar: UINavigationBar!
     // 小作文查重
     
-    private lazy var checkDuplicateViewController = ASCheckDuplicateViewController()
+    private lazy var checkDuplicateViewController = ASCheckDuplicateViewController().then { [weak self] controller in
+        controller.childType = .checkDuplicate
+        controller.asTabBarController = self
+    }
     // 小作文库
-    private lazy var libraryViewController = ASLibraryViewController()
+    private lazy var libraryViewController = ASLibraryViewController().then { [weak self] controller in
+        controller.childType = .library
+        controller.asTabBarController = self
+    }
     // 关于
-    private lazy var aboutViewController = ASAboutViewController()
+    private lazy var aboutViewController = ASAboutViewController().then { [weak self] controller in
+        controller.childType = .about
+        controller.asTabBarController = self
+    }
     // 子控制器列表
-    private lazy var tabBarChildViewControllers = [ASTabBarChildViewController]()
+    private lazy var tabBarChildViewControllers: [ASTabBarChildViewController] = [checkDuplicateViewController, libraryViewController, aboutViewController]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,7 +105,7 @@ class ASTabBarViewController: UIViewController {
             make.height.equalTo(tabbarHeight)
         }
         contentView.snp.makeConstraints { make in
-            make.top.equalTo(navBar.snp.bottom)
+            make.top.equalTo(view).offset(navigationController?.navigationBar.frame.size.height ?? 0)
             make.left.right.equalTo(view)
             make.bottom.equalTo(tabBarView.snp.top)
         }
@@ -106,35 +114,27 @@ class ASTabBarViewController: UIViewController {
 
     // 设置子控制器
     func setupChildControllers() {
-        checkDuplicateViewController.childType = .checkDuplicate
-        addASChild(checkDuplicateViewController)
-        libraryViewController.childType = .library
-        addASChild(libraryViewController)
-        aboutViewController.childType = .about
-        addASChild(aboutViewController)
-    }
-    
-    // 添加子控制器，设置UI
-    func addASChild(_ viewController: ASTabBarChildViewController) {
-        tabBarView.addArrangedSubview(viewController.asTabBarItem)
-        contentView.addSubview(viewController.view)
-        let lastViewController = tabBarChildViewControllers.last
-        viewController.view.snp.makeConstraints { make in
-            make.top.size.equalTo(contentView)
-            if lastViewController == nil {
-                make.left.equalTo(contentView)
-            } else {
-                make.left.equalTo(lastViewController!.view.snp.right)
+        for i in 0..<tabBarChildViewControllers.count {
+            let viewController = tabBarChildViewControllers[i]
+            tabBarView.addArrangedSubview(viewController.asTabBarItem)
+            contentView.addSubview(viewController.view)
+            viewController.view.snp.makeConstraints { make in
+                make.top.height.equalTo(contentView)
+                make.width.equalTo(view)
+                if i == 0 {
+                    make.left.equalTo(contentView)
+                } else {
+                    make.left.equalTo(tabBarChildViewControllers[i - 1].view.snp.right)
+                }
+                make.right.lessThanOrEqualTo(contentView)
             }
-            make.right.lessThanOrEqualTo(contentView)
         }
-        tabBarChildViewControllers.append(viewController)
     }
     
     // 切换子控制器
     func switchToTab(_ type: ASTabBarType) {
         contentView.setContentOffset(CGPoint(x: contentView.frame.size.width * CGFloat(type.rawValue), y: contentView.contentOffset.y), animated: true)
-        navBar.items?.first?.title = type.title
+        title = type.title
     }
     
     // 刷新底部TabBar
@@ -168,13 +168,13 @@ extension ASTabBarViewController: UIScrollViewDelegate {
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         let type = ASTabBarType(rawValue: Int(scrollView.contentOffset.x / scrollView.frame.size.width)) ?? .checkDuplicate
-        navBar.items?.first?.title = type.title
+        title = type.title
         refreshTabBarItems(type)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let type = ASTabBarType(rawValue: Int(scrollView.contentOffset.x / scrollView.frame.size.width)) ?? .checkDuplicate
-        navBar.items?.first?.title = type.title
+        title = type.title
         refreshTabBarItems(type)
     }
 }

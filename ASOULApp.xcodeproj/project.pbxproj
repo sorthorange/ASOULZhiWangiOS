@@ -11,6 +11,7 @@
 		B76EA51A26D8920600BEB842 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76EA51926D8920600BEB842 /* Then.swift */; };
 		B76EA62C26D8D26300BEB842 /* ASHttpRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76EA62B26D8D26200BEB842 /* ASHttpRequestHandler.swift */; };
 		B76EA62E26D8F10700BEB842 /* ASLibraryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76EA62D26D8F10700BEB842 /* ASLibraryData.swift */; };
+		B76EA63026DBD76D00BEB842 /* ASLibraryArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76EA62F26DBD76D00BEB842 /* ASLibraryArticleViewController.swift */; };
 		B7F665BE26D2555D00437F41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F665BD26D2555D00437F41 /* AppDelegate.swift */; };
 		B7F665C226D2555D00437F41 /* ASTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F665C126D2555D00437F41 /* ASTabBarViewController.swift */; };
 		B7F665C526D2555D00437F41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7F665C326D2555D00437F41 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		B76EA51926D8920600BEB842 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		B76EA62B26D8D26200BEB842 /* ASHttpRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASHttpRequestHandler.swift; sourceTree = "<group>"; };
 		B76EA62D26D8F10700BEB842 /* ASLibraryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASLibraryData.swift; sourceTree = "<group>"; };
+		B76EA62F26DBD76D00BEB842 /* ASLibraryArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASLibraryArticleViewController.swift; sourceTree = "<group>"; };
 		B7F665BA26D2555D00437F41 /* ASOULApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASOULApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7F665BD26D2555D00437F41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7F665C126D2555D00437F41 /* ASTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTabBarViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				B7F665EB26D28A3000437F41 /* ASTabBarChildViewController.swift */,
 				B7F665E426D26F4400437F41 /* ASCheckDuplicateViewController.swift */,
 				B7F665E626D26FA800437F41 /* ASLibraryViewController.swift */,
+				B76EA62F26DBD76D00BEB842 /* ASLibraryArticleViewController.swift */,
 				B7F665E826D26FB600437F41 /* ASAboutViewController.swift */,
 			);
 			path = Controller;
@@ -273,6 +276,7 @@
 				B76EA51A26D8920600BEB842 /* Then.swift in Sources */,
 				B76EA62E26D8F10700BEB842 /* ASLibraryData.swift in Sources */,
 				B7F665E526D26F4400437F41 /* ASCheckDuplicateViewController.swift in Sources */,
+				B76EA63026DBD76D00BEB842 /* ASLibraryArticleViewController.swift in Sources */,
 				B76EA62C26D8D26300BEB842 /* ASHttpRequestHandler.swift in Sources */,
 				B7F665E926D26FB600437F41 /* ASAboutViewController.swift in Sources */,
 				B7F665EC26D28A3000437F41 /* ASTabBarChildViewController.swift in Sources */,

@@ -238,6 +238,9 @@ class ASLibraryViewController: ASTabBarChildViewController {
 
 extension ASLibraryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let articleViewController = ASLibraryArticleViewController()
+        asTabBarController?.navigationController?.pushViewController(articleViewController, animated: true)
     }
 }
 

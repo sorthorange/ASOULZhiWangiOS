@@ -14,6 +14,8 @@ import UIKit
 class ASTabBarChildViewController: UIViewController {
     
     var asTabBarItem = ASTabBarItem()
+    
+    weak var asTabBarController: UIViewController?
 
     var childType: ASTabBarType = .checkDuplicate {
         didSet {
