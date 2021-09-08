@@ -28,4 +28,18 @@ class ASHttpRequestHandler: NSObject {
         }
 
     }
+    
+    class func requestLibraryArticle(id: String, success: ((String?) -> ())?, failure: ((Error) -> ())?) {
+        //https://asoul.icu/v/articles/613812569dd7d310bb35a955/html
+        AFHTTPSessionManager().get("https://asoul.icu/v/articles/\(id)/html", parameters: nil, headers: nil, progress: nil) { _, resultObject in
+            if let result = (resultObject as? [String : String])?["htmlContent"] {
+                success?(result)
+            } else {
+                success?(nil)
+            }
+        } failure: { _, error in
+            failure?(error)
+        }
+
+    }
 }

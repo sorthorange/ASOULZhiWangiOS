@@ -240,6 +240,10 @@ extension ASLibraryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let articleViewController = ASLibraryArticleViewController()
+        let model = libraryList[indexPath.row]
+        articleViewController.articleId = model.id
+        articleViewController.articleTitle = model.title
+        articleViewController.articleAuthor = model.author
         asTabBarController?.navigationController?.pushViewController(articleViewController, animated: true)
     }
 }

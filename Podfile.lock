@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - LookinServer (1.0.4)
   - MJRefresh (3.7.2)
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
@@ -24,6 +25,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - LookinServer
   - MJRefresh
   - SDWebImage
   - SnapKit
@@ -33,6 +35,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - LookinServer
     - MJRefresh
     - SDWebImage
     - SnapKit
@@ -41,12 +44,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  LookinServer: 743c1681771d0a8dcc38825325a080c3186404a5
   MJRefresh: 30997d30b347c8e9508a4db11e3a690da0c9b85a
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 3f2d097c200f3dd72c36ccc61f05045220e284be
+PODFILE CHECKSUM: 15a79bbb603966ef5571ae8bd606270e5fbdee66
 
 COCOAPODS: 1.10.1

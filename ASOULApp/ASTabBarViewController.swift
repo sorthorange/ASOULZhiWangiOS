@@ -105,7 +105,7 @@ class ASTabBarViewController: UIViewController {
             make.height.equalTo(tabbarHeight)
         }
         contentView.snp.makeConstraints { make in
-            make.top.equalTo(view).offset(navigationController?.navigationBar.frame.size.height ?? 0)
+            make.top.equalTo(view).offset(navigationController?.navigationBar.frame.maxY ?? 0)
             make.left.right.equalTo(view)
             make.bottom.equalTo(tabBarView.snp.top)
         }
@@ -119,7 +119,8 @@ class ASTabBarViewController: UIViewController {
             tabBarView.addArrangedSubview(viewController.asTabBarItem)
             contentView.addSubview(viewController.view)
             viewController.view.snp.makeConstraints { make in
-                make.top.height.equalTo(contentView)
+                make.top.bottom.equalTo(contentView)
+                make.bottom.equalTo(tabBarView.snp.top)
                 make.width.equalTo(view)
                 if i == 0 {
                     make.left.equalTo(contentView)
