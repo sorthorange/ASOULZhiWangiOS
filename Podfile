@@ -12,5 +12,6 @@ target 'ASOULApp' do
   pod 'YYModel'
   pod 'SVProgressHUD'
   pod 'MJRefresh'
+  pod 'YYText'
   pod 'LookinServer', :configurations => ['Debug']
 end
