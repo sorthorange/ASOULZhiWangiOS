@@ -12,6 +12,10 @@
 		B76EA62C26D8D26300BEB842 /* ASHttpRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76EA62B26D8D26200BEB842 /* ASHttpRequestHandler.swift */; };
 		B76EA62E26D8F10700BEB842 /* ASLibraryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76EA62D26D8F10700BEB842 /* ASLibraryData.swift */; };
 		B76EA63026DBD76D00BEB842 /* ASLibraryArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76EA62F26DBD76D00BEB842 /* ASLibraryArticleViewController.swift */; };
+		B78539B726E9B5FE0045D6A4 /* ASCheckDuplicateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78539B626E9B5FE0045D6A4 /* ASCheckDuplicateData.swift */; };
+		B78539B926EA35DA0045D6A4 /* ASLibraryDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78539B826EA35DA0045D6A4 /* ASLibraryDataCell.swift */; };
+		B78539BB26EA361E0045D6A4 /* ASCheckDuplicateResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78539BA26EA361E0045D6A4 /* ASCheckDuplicateResultView.swift */; };
+		B78539BD26EA36E70045D6A4 /* ASPercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78539BC26EA36E70045D6A4 /* ASPercentView.swift */; };
 		B7F665BE26D2555D00437F41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F665BD26D2555D00437F41 /* AppDelegate.swift */; };
 		B7F665C226D2555D00437F41 /* ASTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F665C126D2555D00437F41 /* ASTabBarViewController.swift */; };
 		B7F665C526D2555D00437F41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7F665C326D2555D00437F41 /* Main.storyboard */; };
@@ -31,6 +35,10 @@
 		B76EA62B26D8D26200BEB842 /* ASHttpRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASHttpRequestHandler.swift; sourceTree = "<group>"; };
 		B76EA62D26D8F10700BEB842 /* ASLibraryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASLibraryData.swift; sourceTree = "<group>"; };
 		B76EA62F26DBD76D00BEB842 /* ASLibraryArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASLibraryArticleViewController.swift; sourceTree = "<group>"; };
+		B78539B626E9B5FE0045D6A4 /* ASCheckDuplicateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCheckDuplicateData.swift; sourceTree = "<group>"; };
+		B78539B826EA35DA0045D6A4 /* ASLibraryDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASLibraryDataCell.swift; sourceTree = "<group>"; };
+		B78539BA26EA361E0045D6A4 /* ASCheckDuplicateResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCheckDuplicateResultView.swift; sourceTree = "<group>"; };
+		B78539BC26EA36E70045D6A4 /* ASPercentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASPercentView.swift; sourceTree = "<group>"; };
 		B7F665BA26D2555D00437F41 /* ASOULApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASOULApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7F665BD26D2555D00437F41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7F665C126D2555D00437F41 /* ASTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTabBarViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				B76EA62D26D8F10700BEB842 /* ASLibraryData.swift */,
+				B78539B626E9B5FE0045D6A4 /* ASCheckDuplicateData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				B7F665ED26D28E7600437F41 /* ASTabBarItem.swift */,
+				B78539B826EA35DA0045D6A4 /* ASLibraryDataCell.swift */,
+				B78539BA26EA361E0045D6A4 /* ASCheckDuplicateResultView.swift */,
+				B78539BC26EA36E70045D6A4 /* ASPercentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -269,16 +281,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B78539BD26EA36E70045D6A4 /* ASPercentView.swift in Sources */,
 				B7F665E726D26FA800437F41 /* ASLibraryViewController.swift in Sources */,
 				B7F665C226D2555D00437F41 /* ASTabBarViewController.swift in Sources */,
 				B7F665BE26D2555D00437F41 /* AppDelegate.swift in Sources */,
 				B7F665EE26D28E7600437F41 /* ASTabBarItem.swift in Sources */,
+				B78539B726E9B5FE0045D6A4 /* ASCheckDuplicateData.swift in Sources */,
 				B76EA51A26D8920600BEB842 /* Then.swift in Sources */,
+				B78539BB26EA361E0045D6A4 /* ASCheckDuplicateResultView.swift in Sources */,
 				B76EA62E26D8F10700BEB842 /* ASLibraryData.swift in Sources */,
 				B7F665E526D26F4400437F41 /* ASCheckDuplicateViewController.swift in Sources */,
 				B76EA63026DBD76D00BEB842 /* ASLibraryArticleViewController.swift in Sources */,
 				B76EA62C26D8D26300BEB842 /* ASHttpRequestHandler.swift in Sources */,
 				B7F665E926D26FB600437F41 /* ASAboutViewController.swift in Sources */,
+				B78539B926EA35DA0045D6A4 /* ASLibraryDataCell.swift in Sources */,
 				B7F665EC26D28A3000437F41 /* ASTabBarChildViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

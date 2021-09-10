@@ -4,7 +4,7 @@
 //  ASLibraryArticleViewController.swift
 //  ASOULApp
 //
-//  Created by 霍橙 on 2021/8/29.
+//  Created by southorange on 2021/8/29.
 //  
 //
     
@@ -95,14 +95,16 @@ class ASLibraryArticleViewController: UIViewController {
         }
     }
     
+    /// 注册响应事件
     func registerAction() {
         pasteBoardButton.addTarget(self, action: #selector(buttonClick(sender:)), for: .touchUpInside)
     }
     
+    /// 刷新数据
     func refreshData() {
         titleLabel.text = articleTitle
         authorLabel.text = articleAuthor
-        ASHttpRequestHandler.requestLibraryArticle(id: articleId) { [weak self] html in
+        ASHttpRequestHandler.getLibraryArticle(id: articleId) { [weak self] html in
             if let html = html {
                 guard let content = html.removingPercentEncoding, let data = content.data(using: .unicode) else {return}
                 guard let attStr = try? NSMutableAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) else {return}

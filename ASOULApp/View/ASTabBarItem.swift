@@ -38,11 +38,13 @@ class ASTabBarItem: UIButton {
         setupConstraints()
     }
     
+    /// 初始化子视图
     func setupSubViews() {
         addSubview(itemTitleLabel)
         addSubview(itemImageView)
     }
     
+    /// 初始化约束
     func setupConstraints() {
         itemTitleLabel.snp.remakeConstraints { make in
             make.centerX.equalTo(self)

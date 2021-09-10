@@ -47,6 +47,9 @@ enum ASTabBarType : Int {
 class ASTabBarViewController: UIViewController {
     
     let tabbarHeight: Float = 49
+    private lazy var tabBarLineView = UIView().then { view in
+        view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+    }
     // 标签栏
     private lazy var tabBarView: UIStackView = UIStackView().then {
         $0.spacing = 10
@@ -95,14 +98,19 @@ class ASTabBarViewController: UIViewController {
     func setupSubViews() {
         view.insertSubview(contentView, at: 0)
         view.addSubview(tabBarView)
+        tabBarView.addSubview(tabBarLineView)
     }
     
-    // 设置约束
+    // 初始化约束
     func setupConstraints() {
         tabBarView.snp.makeConstraints { make in
             make.left.right.equalTo(view)
             make.bottom.equalTo(view.snp.bottomMargin)
             make.height.equalTo(tabbarHeight)
+        }
+        tabBarLineView.snp.makeConstraints { make in
+            make.left.right.top.equalTo(tabBarView)
+            make.height.equalTo(0.5)
         }
         contentView.snp.makeConstraints { make in
             make.top.equalTo(view).offset(navigationController?.navigationBar.frame.maxY ?? 0)

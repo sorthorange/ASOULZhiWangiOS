@@ -27,12 +27,12 @@ class ASTabBarChildViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    // 初始化子视图
+    /// 初始化子视图
     func setupSubViews() {
         
     }
     
-    // 设置约束
+    /// 初始化约束
     func setupConstraints() {
         
     }
