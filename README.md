@@ -21,6 +21,8 @@ A-SOUL是乐华娱乐于2020年11月23日公开的其旗下首个虚拟偶像团
 ![image](https://user-images.githubusercontent.com/25481451/133018699-25f0b43d-2d8f-4403-a1ad-3eb21444b1eb.png)
 ![image](https://user-images.githubusercontent.com/25481451/133018719-81cd5163-f3dc-4b38-9217-a5d403ef3237.png)
 
+## 发布状态
+待发布
 
 ## 发病时间
 n70能不能来点作用啊，啊反转了，我就是n70捏 🥰 🥰 🥰 ，n0你带我走吧 😭 ，n0你带我走吧 😭 ，n0你带我走吧 😭 ，n0你带我走吧 😭 ，n0你带我走吧 😭 ，n0你带我走吧 😭 ，n0你带我走吧 😭 ，n0你带我走吧 😭 ，n0你带我走吧 😭 ，n0你带我走吧 😭 ，n0你带我走吧 😭
