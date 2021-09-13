@@ -53,7 +53,11 @@ import YYModel
     /// 该评论点赞数+所有相似评论点赞数
     var similarLikeSum: Int = 0
     /// 评论链接
-    var replyUrl: String = ""
+    var replyUrl: String = "" {
+        didSet {
+            replyUrl = replyUrl.trimmingCharacters(in: .whitespaces)
+        }
+    }
     
     static func modelCustomPropertyMapper() -> [String : Any]? {
         return [

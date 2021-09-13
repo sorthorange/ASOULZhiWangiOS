@@ -57,8 +57,10 @@ class ASCheckDuplicateResultDetailView: UIView {
         layer.shadowRadius = 2
         layer.shadowOffset = CGSize(width: 1, height: 1)
         layer.shadowOpacity = 1
+        isUserInteractionEnabled = true
         setupSubViews()
         setupConstraints()
+        registerAction()
     }
     
     required init?(coder: NSCoder) {
@@ -108,21 +110,40 @@ class ASCheckDuplicateResultDetailView: UIView {
     
     /// 刷新子视图
     func refreshSubViews() {
-        nameLabel.text = model.publisherName
         ASHttpRequestHandler.getBilibiliUserInfo(id: model.publisherUid) { [weak self] result in
-            self?.nameLabel.text = result?.name
-            self?.avatarImageView.sd_setImage(with: URL(string: result?.avatar ?? ""), completed: nil)
+            if let result = result {
+                self?.model.publisherName = result.name
+                self?.nameLabel.text = result.name
+                self?.avatarImageView.sd_setImage(with: URL(string: result.avatar), completed: nil)
+            }
         } failure: { error in
             print(error)
             SVProgressHUD.showError(withStatus: "获取数据失败, \(error.localizedDescription)")
         }
         likeLabelView.text = "\(model.likeNum)"
         contentLabel.text = model.content
-        let rate = String(format: "%.2f", model.rate * 100)
-        let date = Date(timeIntervalSince1970: TimeInterval(model.createTime))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
-        bottomLabel.text = "重复度: \(rate)% 日期: \(dateFormatter.string(from: date))"
+        let rate = String(format: "%.1f", model.rate * 100)
+        bottomLabel.text = "重复度: \(rate)% 日期: \(DateUtil.convertIntToDateString(model.createTime)))"
+    }
+    
+    func registerAction() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(gestureHandler(sender:)))
+        addGestureRecognizer(tap)
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(gestureHandler(sender:)))
+        longPress.minimumPressDuration = 1.5
+        addGestureRecognizer(longPress)
+    }
+    
+    @objc func gestureHandler(sender: UIGestureRecognizer) {
+        if sender.isKind(of: UITapGestureRecognizer.self) {
+            if let url = URL(string: model.replyUrl) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        } else if sender.isKind(of: UILongPressGestureRecognizer.self) {
+            UIPasteboard.general.string = model.content
+            SVProgressHUD.showSuccess(withStatus: "已复制到剪切板")
+            SVProgressHUD.dismiss(withDelay: 1)
+        }
     }
 }
 
@@ -134,7 +155,7 @@ class ASCheckDuplicateResultView: UIView {
     }
     
     private lazy var percentLabel = UILabel().then { label in
-        label.text = "总文字复制比: 0.000%"
+        label.text = "总文字复制比: 0.0%"
         label.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
         label.font = .systemFont(ofSize: 18, weight: .semibold)
     }
@@ -212,11 +233,11 @@ class ASCheckDuplicateResultView: UIView {
     }
     /// 注册响应事件
     func registerAction() {
-        
+        copyResultButton.addTarget(self, action: #selector(buttonClick(sender:)), for: .touchUpInside)
     }
     /// 刷新子视图
     func refreshSubViews() {
-        let rate = String(format: "%.2f", model.rate * 100)
+        let rate = String(format: "%.1f", model.rate * 100)
         percentLabel.text = "总文字复制比: \(rate)%"
         percentView.percent = model.rate
         resultTitleLabel.text = "相似小作文: \(model.replyList.count)篇"
@@ -244,12 +265,19 @@ class ASCheckDuplicateResultView: UIView {
             }
         }
     }
+    
+    @objc func buttonClick(sender: UIButton) {
+        if sender == copyResultButton {
+            var result: String
+            let rate = String(format: "%.1f", model.rate * 100)
+            if let reply = model.replyList.first {
+                result = "枝网文本复制检测报告(APP版)\n查重时间: \(DateUtil.convertIntToDateString())\n总文字复制比: \(rate)%\n相似小作文:  \(reply.replyUrl)\n作者: \(reply.publisherName)\n发表时间: \(DateUtil.convertIntToDateString(reply.createTime))\n\n查重结果仅作参考，请注意辨别是否为原创"
+            } else {
+                result = "枝网文本复制检测报告(APP版)\n查重时间: \(DateUtil.convertIntToDateString())\n总文字复制比: \(rate)%\n\n查重结果仅作参考，请注意辨别是否为原创"
+            }
+            UIPasteboard.general.string = result
+            SVProgressHUD.showSuccess(withStatus: "已复制到剪切板")
+            SVProgressHUD.dismiss(withDelay: 1)
+        }
+    }
 }
-
-/*
- 嘉然想要一件漂亮的衣服
- 和yhm一样靓丽的裙子
- 鼠鼠们犯了难
- 要是有天国的锦缎该多好啊
- 以金银色的光线编织
- */
