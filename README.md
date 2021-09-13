@@ -2,7 +2,7 @@
 一个ASOUL评论区小作文APP，可以查询小作文出处，也可以浏览小作文库
 - 查重API来自: https://github.com/stream2000/ASoulCnki
 - 小作文库来自: https://asoul.icu
-参考链接：https://github.com/jiangdashao/ASoulZhiWang  一眼偷🤖
+- 参考链接：https://github.com/jiangdashao/ASoulZhiWang  一眼偷🤖
 
 ## A-SOUL简介
 A-SOUL是乐华娱乐于2020年11月23日公开的其旗下首个虚拟偶像团体，由5名成员组成。
@@ -18,7 +18,7 @@ A-SOUL是乐华娱乐于2020年11月23日公开的其旗下首个虚拟偶像团
 
 ## 截图
 
-![image](https://user-images.githubusercontent.com/25481451/133018699-25f0b43d-2d8f-4403-a1ad-3eb21444b1eb.png) ![image](https://user-images.githubusercontent.com/25481451/133018719-81cd5163-f3dc-4b38-9217-a5d403ef3237.png)
+![image](https://user-images.githubusercontent.com/25481451/133018699-25f0b43d-2d8f-4403-a1ad-3eb21444b1eb.png)![image](https://user-images.githubusercontent.com/25481451/133018719-81cd5163-f3dc-4b38-9217-a5d403ef3237.png)
 
 ## 发布状态
 待发布
